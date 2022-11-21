@@ -1,9 +1,14 @@
-# 위상 정렬
+---
+title: "위상 정렬"
+last_modified_at: 2022-09-20T19:45:00+09:00
+categories:
+  - Algorithm
+tags:
+  - Algorithm
+  - Graph
+---
 
-Created: 2022년 9월 17일 오후 7:56
-Last Edited Time: 2022년 9월 20일 오후 7:45
-Status: Done
-Type: Graph
+# 위상 정렬
 
 위상 정렬이란 실행 순서를 결정해주기 위한 알고리즘. 어떤 작업 이전에 선행되어야 하는 작업들이 있는 경우, 작업들의 순서를 정하고 종료까지의 시간을 구하는 데 사용 됨.
 
@@ -11,7 +16,7 @@ Type: Graph
 
 예시 :
 
-![Untitled](%E1%84%8B%E1%85%B1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%20859e60107e5341398e4f47bf6585d064/Untitled.png)
+![Untitled](/assets/images/Topological_sort.png)
 
 사용 :
 
