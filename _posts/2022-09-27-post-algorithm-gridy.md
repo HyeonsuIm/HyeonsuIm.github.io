@@ -1,5 +1,5 @@
 ---
-title: "Gridy Algorithm"
+title: "그리디"
 last_modified_at: 2022-10-07T07:05:00+09:00
 categories:
   - Algorithm

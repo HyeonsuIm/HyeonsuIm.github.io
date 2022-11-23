@@ -1,5 +1,5 @@
 ---
-title: "최장 증가 수열"
+title: "최장 공통 문자열"
 last_modified_at: 2022-10-07T07:04:00+09:00
 categories:
   - Algorithm
