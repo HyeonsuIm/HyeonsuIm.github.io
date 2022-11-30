@@ -1,4 +1,7 @@
 ---
+layout: default
+parent: docker
+nav_order: 2
 title: "도커 명령어"
 last_modified_at: 2022-11-30T08:00:00+09:00
 categories:

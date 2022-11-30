@@ -1,4 +1,7 @@
 ---
+layout: default
+parent: algorithm
+nav_order: 3
 title: "최장 공통 문자열"
 last_modified_at: 2022-10-07T07:04:00+09:00
 categories:

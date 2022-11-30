@@ -1,4 +1,7 @@
 ---
+layout: default
+parent: algorithm
+nav_order: 3
 title: "최장 증가 수열"
 last_modified_at: 2022-09-24T11:51:00+09:00
 categories:

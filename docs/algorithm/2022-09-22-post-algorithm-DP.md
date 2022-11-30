@@ -1,4 +1,7 @@
 ---
+layout: default
+parent: algorithm
+nav_order: 3
 title: "DP"
 last_modified_at: 2022-09-26T23:13:00+09:00
 categories:
