@@ -1,5 +1,5 @@
 ---
-title: "도커란?"
+title: "도커"
 last_modified_at: 2022-11-23T20:45:00+09:00
 categories:
   - Docker
