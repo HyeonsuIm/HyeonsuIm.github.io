@@ -1,6 +1,6 @@
 title: nub's blog
 description: 
-theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 
 url: https://hyeonsuim.github.io
 search_enabled: false
