@@ -51,10 +51,12 @@ javascript의 모든 내용을 포함(superset)하는 언어로, javascript의 �
     * 어떤 자료형으로도 대체될 수 있으며, 자료형은 typeof로 구분할 수 있다.
     * ex. ```typeof val === "number"```
   * unknown
+    * any type의 자료형만 할당할 수 있다.
+    * any type이 할당되어야 하는 곳에 사용하면 다른 type이 전달되는 오류를 방지할 수 있다.
   * array
     * 초기화 시 하나의 타입으로 정의되는 경우, 하나의 타입에 대한 배열로 사용된다.
     * 초기화할 때 여러 타입으로 정의되는 경우, any 타입에 대한 배열로 사용된다.
-  * object
+  * object 
   * union
     * 여러 자료형을 사용할 수 있는 자료형
 
