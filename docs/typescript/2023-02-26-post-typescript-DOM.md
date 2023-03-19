@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: typescript
-nav_order: 5
+nav_order: 3
 title: "TypeScript DOM"
 last_modified_at: 2023-02-26T19:30:00+09:00
 categories:

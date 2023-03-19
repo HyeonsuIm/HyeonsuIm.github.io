@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: sginx
-nav_order: 5
+nav_order: 1
 title: "Nginx"
 last_modified_at: 2023-03-05T15:10:00+09:00
 categories:

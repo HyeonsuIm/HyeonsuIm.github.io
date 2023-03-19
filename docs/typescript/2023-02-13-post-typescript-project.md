@@ -1,7 +1,7 @@
 ---
 layout: default
 parent: typescript
-nav_order: 5
+nav_order: 2
 title: "TypeScript project"
 last_modified_at: 2023-02-14T00:30:00+09:00
 categories:
