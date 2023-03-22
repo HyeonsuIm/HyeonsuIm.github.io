@@ -62,11 +62,63 @@ docker-compose up -d
 <br>
 
 # HTTPS
+rocket.chat 자체적으로는 HTTPS를 지원하지 않기 때문에, 중간에 nginx를 이용하여 HTTPS를 처리하도록 하였습니다.
+아래와 같이 nginx docker를 생성하여 HTTPS요청을 받은 뒤, 이를 rocket.chat 서버로 전달해주도록 처리하면 HTTPS가 정상적으로 처리됨을 확인할 수 있었습니다.<br>
 
+HTTPS를 지원하기 위해서 /etc/letsencryp/www.domain.com:3001/ 폴더에 인증서 파일을 추가하여야 합니다.
 
+```nginx
+# nginx.conf
+# Upstreams
+upstream backend {
+    server localhost:3000;
+}
+
+# HTTPS Server
+server {
+    listen 3001 ssl;
+    server_name www.domain.com;
+    server_tokens off;
+    # You can increase the limit if your need to.
+    client_max_body_size 200M;
+
+    error_log /var/log/nginx/rocketchat.access.log;
+	
+    ssl_certificate /etc/letsencrypt/live/www.domain.com:3001/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/www.domain.com:3001/privkey.pem;
+	ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+
+    location / {
+        proxy_pass http://backend;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Nginx-Proxy true;
+
+        proxy_redirect off;
+    }
+}
+```
+```yml
+#compose.yml
+  nginx:
+    build: ./nginx
+    container_name: rocketchat_nginx
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - /etc/rocketchat/certbot/conf:/etc/letsencryp
+```
 
 # Truble shuting
 
 
 
 # 결과
+채팅하는데 큰 문제 없이 사용하고 있음.
