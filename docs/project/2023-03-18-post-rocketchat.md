@@ -3,7 +3,7 @@ layout: default
 parent: project
 nav_order: 1
 title: "rocket.chat 채팅 사용기"
-last_modified_at: 2023-03-19T10:50:00+09:00
+last_modified_at: 2023-04-15T21:00:00+09:00
 categories:
   - rocket.chat
 tags:
@@ -115,10 +115,3 @@ server {
     volumes:
       - /etc/rocketchat/certbot/conf:/etc/letsencryp
 ```
-
-# Truble shuting
-
-
-
-# 결과
-채팅하는데 큰 문제 없이 사용하고 있음.
