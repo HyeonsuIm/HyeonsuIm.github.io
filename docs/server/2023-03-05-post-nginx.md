@@ -67,5 +67,88 @@ block을 바탕으로 복합적인 서버 환경을 설정합니다.
 
 
 
-# Log
+# Logging
 
+아래와 같이 설정하여 로그를 저장할 수 있습니다.
+```nginx
+server {
+  access_log <경로>;
+  error_log <경로>;
+}
+```
+
+일반적으로 아래와 같이 설정합니다.
+```nginx
+server {
+  access_log /var/log/nginx/<server name>/access.log;
+  error_log /var/log/nginx/<server name>/error.log;
+}
+```
+
+# Log 상세 설정
+## 로깅 포맷 변경
+기본적으로 로그 포맷은 아래와 같고, 변경할 수 있습니다.
+```nginx
+# 기본 로그 포맷
+log_format default_log  '$remote_addr - $remote_user [$time_local] "$request" '
+                  '$status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+# custom 로그 정의
+log_format  custom_log  '$remote_addr - $remote_user [$time_local] [$request_time] '
+                  '"$request" $status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+# custom 로그 설정
+access_log <경로> custom_log
+```
+
+로그 예약어
+```nginx
+# 예약어
+$remote_user # HTTP Authorization 접속시 접속한 유저
+$remote_addr # 방문자 IP
+$time_local # 요청을 처리한 서버 시간
+$status # HTTP 응답코드
+$request # 클라이언트 요청
+$http_user_agent # 클라이언트가 사용한 브라우저
+$http_referer # 해당 페이지 이전에 거쳐온 URL
+$body_bytes_sent # 보낸 데이터 크기 (byte)
+$http_x_forwarded_for # 프록시 서버를 거치기 전의 접속 IP
+$request_time # 요청을 처리하는데 걸린시간
+$connection # 로그를 남길 당시의 커넥션 수
+```
+
+아래와 같이 json형태로 로그를 출력할 수도 있습니다.
+```nginx
+log_format json_logging escape=json
+ '{'
+   '"time_local":"$time_local",'
+   '"remote_addr":"$remote_addr",'
+   '"request":"$request",'
+   '"status": "$status",'
+   '"body_bytes_sent":"$body_bytes_sent",'
+   '"request_time":"$request_time",'
+   '"http_referrer":"$http_referer",'
+   '"http_user_agent":"$http_user_agent"'
+ '}';
+```
+
+## 로깅 레벨 설정
+로그에는 다양한 레벨이 있고, 레벨에 맞춰 로그를 출력할 수 있습니다.
+```nginx
+# 로그 레벨
+info - 정보
+notice - 정상
+warn - 경고
+error - 프로세스 처리 에러
+crit - 프로새스에 영향을 주는 오류
+alert - 프로새스에 심각한 영향을 주는 오류
+emerg 서비스 불가 수준 오류 - 설정, syntax등이 잘못된 경우
+debug 디버그 정보
+```
+
+
+```nginx
+error_log <경로> <로그 레벨>
+```
