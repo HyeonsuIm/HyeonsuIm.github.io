@@ -1,6 +1,6 @@
 ---
 layout: default
-parent: sginx
+parent: server
 nav_order: 1
 title: "Nginx"
 last_modified_at: 2023-04-15T21:00:00+09:00
