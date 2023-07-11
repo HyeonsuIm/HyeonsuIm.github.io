@@ -175,3 +175,29 @@ template<typename T>
 void func(T param);
 fimc({1,2,3})     // compile error
 ```
+
+# decltype
+decltype은 표현식의 형식을 알려주며, template이나 auto와는 다르게 해당하는 타입이 그대로 반환되게 된다.
+```C++
+vector<int> v;    // decltype(v)    : vector<int>
+v[0]              // decltype(v[0]) : int&
+```
+
+일반적으로는 아래와 같이 파라미터 값에 따라 반환값이 변경되거나, auto의 type정의 방식과 다르게 정의할 때 사용하게 된다.
+```C++
+template<typename Container, typename Index>
+auto authAndAcess1(Container& c, Index i) -> decltype(c[i])
+{
+  return c[i];
+}
+
+// 또는
+template<typename Container, typename Index>
+deltype(auto) authAndAcess2(Container& c, Index i)
+{
+  return c[i];
+}
+
+const int& value = 1;
+deltype(auto) value1 = value;   // const int &
+```
